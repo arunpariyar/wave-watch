@@ -6,18 +6,6 @@ import type { DailyWeather } from "./types/types";
 import { createEmptyDailyWeather } from "./utils/utils";
 import { WeatherCard } from "./components/WeatherCard";
 
-import {
-  WiCelsius,
-  WiSandstorm,
-  WiShowers,
-  WiSunset,
-  WiThermometer,
-  WiTime2,
-} from "react-icons/wi";
-import { WiSunrise } from "react-icons/wi";
-
-import { formatDaylight } from "./utils/utils";
-
 function App() {
   const [location, setLocation] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
@@ -62,14 +50,14 @@ function App() {
             type="text"
             value={location}
             onChange={handleChange}
-            placeholder="Type something..."
+            placeholder="Ort eingeben…"
             className="border p-2 rounded"
           />
           <button
             onClick={queryWeatherForcase}
             className="rounded-xl bg-[#22A5D6] text-white text-lg p-2 "
           >
-            Check Surf Forecast
+            Surf-Wettervorhersage
           </button>
         </div>
 
