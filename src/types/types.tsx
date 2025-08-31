@@ -4,24 +4,41 @@ export interface Coordinates {
 }
 
 export interface Weather {
-  daily: {
-    weather_code: number[] | null;
-    temperature_2m_max: number[] | null;
-    temperature_2m_min: number[] | null;
-    apparent_temperature_max: number[] | null;
-    apparent_temperature_min: number[] | null;
-    daylight_duration: number[] | null;
-    sunshine_duration: number[] | null;
-    rain_sum: number[] | null;
-    showers_sum: number[] | null;
-    snowfall_sum: number[] | null;
-    precipitation_sum: number[] | null;
-    precipitation_hours: number[] | null;
-    precipitation_probability_max: number[] | null;
-    wind_speed_10m_max: number[] | null;
-    wind_gusts_10m_max: number[] | null;
-    wind_direction_10m_dominant: number[] | null;
-    shortwave_radiation_sum: number[] | null;
-    et0_fao_evapotranspiration: number[] | null;
-  };
+  time: Date[];
+  weather_code: number[];
+  temperature_2m_max: number[];
+  temperature_2m_min: number[];
+  apparent_temperature_max: number[];
+  apparent_temperature_min: number[];
+  daylight_duration: number[];
+  sunshine_duration: number[];
+  rain_sum: number[];
+  showers_sum: number[];
+  snowfall_sum: number[];
+  precipitation_sum: number[];
+  precipitation_hours: number[];
+  precipitation_probability_max: number[];
+  wind_speed_10m_max: number[];
+  wind_gusts_10m_max: number[];
+  wind_direction_10m_dominant: number[];
+}
+
+export interface DailyWeather {
+  time: Date;
+  weather_code: number;
+  temperature_max: number;
+  temperature_min: number;
+  apparent_max: number;
+  apparent_min: number;
+  daylight: number;
+  sunshine: number;
+  rain: number;
+  showers: number;
+  snowfall: number;
+  precipitation: number;
+  precipitation_hours: number;
+  precipitation_probability: number;
+  wind_speed: number;
+  wind_gusts: number;
+  wind_direction: number;
 }
