@@ -1,13 +1,9 @@
-// const baseUrl = import.meta.env.VITE_BASE_URL;
-
 const url = "https://api.open-meteo.com/v1/forecast";
 const locationBaseUrl = "https://geocoding-api.open-meteo.com/v1/search";
 
 import { fetchWeatherApi } from "openmeteo";
 import type { Coordinates } from "../types/types";
 import { transformWeatherData } from "../utils/utils";
-
-import { WiThermometer } from "react-icons/wi";
 
 export async function getLocation(location: string): Promise<Coordinates> {
   const searchQuery = `${locationBaseUrl}?name=${location}&count=1&language=en&format=json`;
@@ -25,7 +21,6 @@ export async function getLocation(location: string): Promise<Coordinates> {
   return { latitude, longitude };
 }
 
-//TODO - need to type this at the end
 export async function fetchWeather(coordinates: Coordinates) {
   const params = {
     latitude: coordinates.latitude,
@@ -52,24 +47,11 @@ export async function fetchWeather(coordinates: Coordinates) {
   try {
     const responses = await fetchWeatherApi(url, params);
 
-    // Process first location. Add a for-loop for multiple locations or weather models
     const response = responses[0];
-
-    // Attributes for timezone and location
-    // const latitude = response.latitude();
-    // const longitude = response.longitude();
-    // const elevation = response.elevation();
     const utcOffsetSeconds = response.utcOffsetSeconds();
-
-    // console.log(
-    //   `\nCoordinates: ${latitude}°N ${longitude}°E`,
-    //   `\nElevation: ${elevation}m asl`,
-    //   `\nTimezone difference to GMT+0: ${utcOffsetSeconds}s`
-    // );
 
     const daily = response.daily()!;
 
-    // Note: The order of weather variables in the URL query and the indices below need to match!
     const weatherData = {
       time: [
         ...Array(

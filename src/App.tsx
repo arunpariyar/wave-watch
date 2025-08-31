@@ -9,8 +9,7 @@ import { WeatherCard } from "./components/WeatherCard";
 function App() {
   const [location, setLocation] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
+
   let [weatherToday, setWeatherToday] = useState<DailyWeather>(
     createEmptyDailyWeather()
   );
@@ -32,8 +31,6 @@ function App() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLocation(e.target.value);
   };
-
-  console.log(weatherToday);
 
   return (
     <div className="flex justify-center items-center h-screen">
